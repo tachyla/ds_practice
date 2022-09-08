@@ -7,7 +7,7 @@ const mergeSort = (array) => {
         let bIndex = 0;
 
         while( aIndex < arrayA.length && bIndex < arrayB.length){
-            if(aIndex < bIndex){
+            if(arrayA[aIndex] < arrayB[bIndex]){
                 combined.push(arrayA[aIndex]);
                 aIndex++;
             }
@@ -29,10 +29,8 @@ const mergeSort = (array) => {
         return combined;
     }
 
-
     //BASECASE: exits while loop when array's length === 1 
     if(array.length === 1) return array;
-    while(array.length > 1) {
         let middle = Math.floor(array.length / 2);
         let left = array.slice(0, middle);
         let right = array.slice(middle);
@@ -40,11 +38,9 @@ const mergeSort = (array) => {
                 //mergeHelper is called adding it to callstack
                 //mergeSort(left) is added to callstack on TOP OF mergeHelper
                 //mergeSort(right) is added to callstack on TOP OF mergeSort(left)
-        return mergeHelper(mergeSort(left), mergeSort(right));
-    }
-    
-    
+        return mergeHelper(mergeSort(left), mergeSort(right));    
 }
 
-const myArray = [10, 6, 4, 8, 2, 5];
-console.log(mergeSort(myArray));
+const myArray0 = [3, 1, 4, 2];
+let myArray2 = [ 5, 4, 8, 10, 2, 6 ];
+console.log(mergeSort(myArray2));
